@@ -30,6 +30,9 @@ resource "github_issue_label" "labels" {
   name        = each.key
   color       = each.value.color
   description = each.value.description
+  lifecycle {
+    ignore_changes = []
+  }
 }
 resource "github_repository_file" "readme"{
   count=var.readme_content!=null?1:0
