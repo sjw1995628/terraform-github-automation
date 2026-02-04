@@ -8,6 +8,7 @@ on:
 
 env:
   TF_CLOUD_ORGANIZATION: "sjw-terraform"
+  GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
 
 jobs:
   terraform:
