@@ -1,13 +1,21 @@
 terraform {
+  cloud {
+    organization = "sjw-terraform"   # ← 알려줘!
+
+    workspaces {
+      name = "terraform-github-automation"
+    }
+  }
+
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "~>6.0"
+      version = "~> 6.0"
     }
   }
 }
-provider "github" {
-}
+
+provider "github" {}
 module "repos" {
   for_each = var.repositories
   source   = "./modules/github-repo"
